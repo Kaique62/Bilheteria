@@ -3,11 +3,11 @@ from tkinter.messagebox import *
 import json
 import os
 
-def path():
-    return 'arquivos adicionais/bilhetesData.json'
-
 if not os.path.exists('arquivos adicionais'):
     os.makedirs('arquivos adicionais')
+
+def path():
+    return 'arquivos adicionais/bilhetesData.json'
 
 open(path(), 'a+').close()
 
