@@ -28,46 +28,50 @@ def dataPopup():
     
     showinfo("Ingresso", f"Nome: {nome.get()}\nTipo de Ingresso: {ingresso}\nRampa de Acesso: {rampa}\nIntérprete: {interprete}\nSala Sensorial: {sala}")
 
+fontPre = ("Helvetica", 20)
+
 app = CTk()
-app.geometry("360x720")
+app.geometry("310x460")
 
 data = []
 
-nameLabel =  CTkLabel(app, text="Nome do Portador", justify="center")
-nameLabel.pack(pady=3, anchor='w')
+nameLabel =  CTkLabel(app, text="Nome do Portador", justify="center", font=fontPre)
+nameLabel.pack(pady=5, anchor='w')
 
-nome = CTkEntry(app)
-nome.pack(anchor='w', pady=3)
+CTk
 
-ingressoLabel = CTkLabel(app, text="Tipo de Ingresso")
-ingressoLabel.pack(anchor='w')
+nome = CTkEntry(app, width=300, font=fontPre)
+nome.pack(anchor='w', pady=10)
+
+ingressoLabel = CTkLabel(app, text="Tipo de Ingresso", font=fontPre)
+ingressoLabel.pack(anchor='w', pady=10)
 
 opt = IntVar()
 
-button1 = CTkRadioButton(app, text="Pista", variable=opt, value=1)
-button1.pack(anchor='w')
+button1 = CTkRadioButton(app, text="Pista", variable=opt, value=1, font=fontPre)
+button1.pack(anchor='w', pady=5)
 
 opt.set(1)
 
-button2 = CTkRadioButton(app, text="Camarote", variable=opt)
-button2.pack(anchor='w')
+button2 = CTkRadioButton(app, text="Camarote", variable=opt, font=fontPre)
+button2.pack(anchor='w', pady=5)
 
-necessityLabel =  CTkLabel(app, text="Necessidades Especiais")
-necessityLabel.pack(anchor='w')
+necessityLabel =  CTkLabel(app, text="Necessidades Especiais", font=fontPre)
+necessityLabel.pack(anchor='w', pady=10)
 
 var1 = BooleanVar()
-box1 = CTkCheckBox(app, text="Rampa de Acesso", variable=var1)
-box1.pack(anchor='w')
+box1 = CTkCheckBox(app, text="Rampa de Acesso", variable=var1, font=fontPre)
+box1.pack(anchor='w', pady=4)
 
 var2 = BooleanVar()
-box2 = CTkCheckBox(app, text="Intérprete", variable=var2)
-box2.pack(anchor='w')
+box2 = CTkCheckBox(app, text="Intérprete", variable=var2, font=fontPre)
+box2.pack(anchor='w', pady=4)
 
 var3 = BooleanVar()
-box3 = CTkCheckBox(app, text="Sala Sensorial", variable=var3)
-box3.pack(anchor='w')
+box3 = CTkCheckBox(app, text="Sala Sensorial", variable=var3, font=fontPre)
+box3.pack(anchor='w', pady=4)
 
-confirm = CTkButton(app, text="Enviar", command=saveData)
-confirm.pack(anchor='w')
+confirm = CTkButton(app, text="Enviar", command=saveData, font=fontPre)
+confirm.pack(anchor='w', pady=15)
 
 app.mainloop()
