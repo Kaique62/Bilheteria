@@ -62,14 +62,16 @@ def dataPopup():
     showinfo("Ingresso", f"Nome: {nome.get()}\nTipo de Ingresso: {ingresso}\nRampa de Acesso: {rampa}\nIntérprete: {interprete}\nSala Sensorial: {sala}")
 
 fontPre = ("Calibri", 20)
-
 app = CTk()
 app.geometry("310x400")
+app.title("Bilhete")
 
-nameLabel =  CTkLabel(app, text="Nome do Portador", justify="center", font=fontPre)
+set_appearance_mode("light")
+
+nameLabel =  CTkLabel(app, text="Nome do Portador", justify="center", font=fontPre, )
 nameLabel.pack(pady=5, anchor='w')
 
-nome = CTkEntry(app, width=300, font=fontPre)
+nome = CTkEntry(app, width=360, font=fontPre)
 nome.pack(anchor='w', pady=10)
 
 ingressoLabel = CTkLabel(app, text="Tipo de Ingresso", font=fontPre)
