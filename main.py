@@ -1,8 +1,30 @@
 from customtkinter import *
 from tkinter.messagebox import *
+import json
+import os
+
+def path():
+    return 'arquivos adicionais/bilhetesData.json'
+
+if not os.path.exists('arquivos adicionais'):
+    os.makedirs('arquivos adicionais')
+
+open(path(), 'a+').close()
+
+data = {}
+
+with open(path(), 'r') as file:
+    try:
+        data = json.load(file)
+    except:
+        print('First Time Loading')
+
 
 def saveData():
-    data.append([nome.get(), opt.get(), var1, var2, var3])
+    data[len(data) + 1] = [nome.get(), opt.get(), var1.get(), var2.get(), var3.get()]
+    
+    with open(path(), 'w') as file:
+        json.dump(data, file)
     dataPopup()
     
 def dataPopup():
@@ -30,8 +52,6 @@ def dataPopup():
 
 app = CTk()
 app.geometry("360x720")
-
-data = []
 
 nameLabel =  CTkLabel(app, text="Nome do Portador", justify="center")
 nameLabel.pack(pady=3, anchor='w')
